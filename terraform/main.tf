@@ -12,7 +12,7 @@ module "sandbox" {
 
   account_tags = {
     "Learn Tutorial" = "AFT"
-    "Owner" = "MarkC"
+    "Owner" = "AndyDale"
   }
 
   change_management_parameters = {
