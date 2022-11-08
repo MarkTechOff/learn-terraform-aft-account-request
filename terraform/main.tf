@@ -60,3 +60,36 @@ module "prod1" {
   account_customizations_name = "production"
 }
 
+
+#creating a second production account
+module "prod2" {
+  source = "./modules/aft-account-request"
+
+  control_tower_parameters = {
+    AccountEmail              = "mark.conway+prod2@microfocus.com"
+    AccountName               = "prod2"
+    ManagedOrganizationalUnit = "nglz"
+    SSOUserEmail              = "mark.conway+prod2@microfocus.com"
+    SSOUserFirstName          = "Production"
+    SSOUserLastName           = "AFT"
+  }
+
+  account_tags = {
+    "Learn Tutorial" = "AFT"
+    "Owner" = "Mark Conway"
+  }
+
+  change_management_parameters = {
+    change_requested_by = "HashiCorp Learn"
+    change_reason       = "Create a production2 account"
+  }
+
+  custom_fields = {
+    group = "prod"
+  }
+
+  account_customizations_name = "production"
+}
+
+
+
