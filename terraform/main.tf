@@ -105,7 +105,8 @@ module "prod2" {
           "phone-number"  = "+11234567890",
           "title"         = "SOC Team"
         }
-    
+      }
+    )
     group = "prod"
   }
 
