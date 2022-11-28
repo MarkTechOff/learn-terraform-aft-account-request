@@ -115,3 +115,54 @@ module "prod2" {
 
 
 
+#creating a second production account
+module "sandbox2" {
+  source = "./modules/aft-account-request"
+
+  control_tower_parameters = {
+    AccountEmail              = "mark.conway+sandbox2@microfocus.com"
+    AccountName               = "sandbox2"
+    ManagedOrganizationalUnit = "nglz"
+    SSOUserEmail              = "mark.conway+sandbox2@microfocus.com"
+    SSOUserFirstName          = "Sandbox2"
+    SSOUserLastName           = "AFT"
+  }
+
+  account_tags = {
+    "Learn Tutorial" = "AFT"
+    "Owner" = "Mark Conway"
+  }
+
+  change_management_parameters = {
+    change_requested_by = "HashiCorp Learn"
+    change_reason       = "Create sanbox2 account"
+  }
+
+  custom_fields = {
+    alternate_contact = jsonencode(
+      {
+        "billing"= {
+          "email-address" = "billing@mycompany.com",
+          "name"          = "Account Receiveable",
+          "phone-number"  = "+11234567890",
+          "title"         = "Billing Department"
+        },
+        "operations"= {
+          "email-address" = "ops@mycompany.com",
+          "name"          = "Operations 24/7",
+          "phone-number"  = "+11234567890",
+          "title"         = "DevOps Team"
+        },
+        "security"= {
+          "email-address" = "soc@mycompany.com",
+          "name"          = "Security Ops Center",
+          "phone-number"  = "+11234567890",
+          "title"         = "SOC Team"
+        }
+      }
+    )
+    group = "sandbox"
+  }
+
+  account_customizations_name = "sandbox"
+}
