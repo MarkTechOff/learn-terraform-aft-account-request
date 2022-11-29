@@ -187,7 +187,7 @@ module "sandbox3" {
   account_tags = {
     "Learn Tutorial" = "AFT"
     "Owner" = "Mark Conway"
-    "CostType" = "R&D"
+    "CostType" = "RnD"
     "Subsiduary" = "UK_L0029"
     "Department" = "45701" 
   }
